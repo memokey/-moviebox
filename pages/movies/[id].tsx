@@ -78,7 +78,11 @@ const Movies = () => {
                 <div className="movie-detail d-flex">
                   <div className="col-md-8 mr-4">
                     <div className="d-flex">
-                      <div className="detail-movie-title">{movie.title} • {movie.release_date && movie.release_date.slice(0, 4)} • {(movie.runtime/60).toFixed(0)}h {movie.runtime%60}m</div>
+                      <div className="detail-movie-title">
+                        <span data-testid="movie-title">{movie.title}</span> • 
+                        <span data-testid="movie-release-date">{movie.release_date && movie.release_date}</span>
+                        <span data-testid="movie-runtime">{movie.runtime}m</span>
+                      </div>
                       <div className="movie-detail-tags">
                         {movie.genres && movie.genres.map((tag: any, index: number) => (
                           <MovieTag
@@ -89,7 +93,7 @@ const Movies = () => {
                       </div>
                     </div>
                     <div className="d-flex flex-column gap-31">
-                      <div className="movie-detail-description">
+                      <div className="movie-detail-description" data-testid="movie-overview">
                         {movie.overview && movie.overview}
                       </div>
                       <div className="d-flex gap-2">

@@ -24,10 +24,12 @@ const Home: NextPage = () => {
         if(tmpMovies.data.results) {
           const subMovies = tmpMovies.data.results.slice(0, 10);
           for(let i = 0; i < subMovies.length; i ++) {
+            let images = await axios.get('https://api.themoviedb.org/3/movie/'+subMovies[i].id+'/images?api_key=27a4af714a325a89bbec17754ad3a8ef');
+            console.log(images);
             arrMovies = [...arrMovies, {
               id: subMovies[i].id,
               title: subMovies[i].original_title,
-              img: '/images/landing/movies/dune.png',
+              img: subMovies[i].backdrop_path,
               description: subMovies[i].overview,
               rank: subMovies[i].vote_average * 10 + '',
               percent: subMovies[i].popularity,
@@ -71,7 +73,7 @@ const Home: NextPage = () => {
           arrMovies = [...arrMovies, {
             id: subMovies[i].id,
             title: subMovies[i].original_title,
-            img: '/images/landing/movies/dune.png',
+            img: subMovies[i].backdrop_path,
             description: subMovies[i].overview,
             rank: subMovies[i].vote_average * 10 + '',
             percent: subMovies[i].popularity,

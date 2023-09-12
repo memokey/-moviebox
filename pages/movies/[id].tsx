@@ -114,7 +114,7 @@ const Movies = () => {
                   </div>
                   <div className="col-md-4">
                     <div className="d-flex mb-29 gap-2 justify-content-end align-items-center">
-                      <img src="/images/details/star.png" alt="star" width={30} height={30} />
+                      <img src="/images/details/Star.png" alt="star" width={30} height={30} />
                       <span className="star-score">{movie.vote_average && movie.vote_average.toFixed(1)}</span>
                       <span className="star-count">| {movie.vote_count && movie.vote_count > 1000 ? (movie.vote_count/1000).toFixed(1) + 'K': movie.vote_count}</span>
                     </div>
